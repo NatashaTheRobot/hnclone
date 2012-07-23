@@ -1,6 +1,8 @@
 Hnclone::Application.routes.draw do
-  root to: "users#new"
+
+  root to: "links#index"
   
+  resources :links
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   

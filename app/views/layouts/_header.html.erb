@@ -3,14 +3,17 @@
     <div class="container">
       <%= link_to "HNclone", root_path, id: "logo" %>
       <nav>
+		<ul class="nav pull-left">
+			<li><%= link_to "submit", new_link_path %></li>
+		</ul>
         <ul class="nav pull-right">
           <% if signed_in? %>
 			<li><%= link_to current_user.name, current_user %></li>
 			<li>
-              <%= link_to "Sign out", signout_path, method: "delete" %>
+              <%= link_to "logout", signout_path, method: "delete" %>
 			</li>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to "login", signin_path %></li>
           <% end %>
         </ul>
       </nav>

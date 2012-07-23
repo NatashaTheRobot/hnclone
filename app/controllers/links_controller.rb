@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    @links = Link.scoped.page(params[:page]).per(30)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -9,7 +9,7 @@ class VotesController < ApplicationController
       @vote = link.votes.build
       @vote.value = params[:value]
       @vote.user = current_user
-    
+
       if @vote.save
         flash[:success] = "Thanks for the vote!"
       else
@@ -18,7 +18,7 @@ class VotesController < ApplicationController
     else
       flash[:error] = "You cannot upvote your own link!"
     end
-    
+
     redirect_to root_path
     
   end

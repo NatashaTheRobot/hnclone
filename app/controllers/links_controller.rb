@@ -43,6 +43,10 @@ class LinksController < ApplicationController
   # GET /links/1/edit
   def edit
     @link = Link.find(params[:id])
+    if @link.user.id != current_user.id
+      redirect_to link_path(@link)
+      flash[:error] = "Only the author can edit this link"
+    end
   end
 
   # POST /links

@@ -4,7 +4,8 @@
 
 <% @links.each do |link| %>
   <ol>
-    <li><%= link_to link.title, link.url %></li>
+    <li><%= link_to link.title, link.url, :target => "_blank" %>
+		<%= link_to "Comments", "/links/#{link.id}"%></li>
   </ol>
 <% end %>
 

@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @link.title %>
-</p>
+<p><%= link_to @link.title, @link.url, :target => "_blank"%></p>
 
-<p>
-  <b>Url:</b>
-  <%= @link.url %>
-</p>
+<%= form_for([@link, @link.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<ul>
+	<% @comments.each do |comment| %>
+		<li><%= comment.text %></li>
+	<% end %>	
+</ul>	
 
 
 <%= link_to 'Edit', edit_link_path(@link) %> |

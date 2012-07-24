@@ -14,6 +14,8 @@ class LinksController < ApplicationController
   # GET /links/1.json
   def show
     @link = Link.find(params[:id])
+    @comments = @link.comments
+    @comment = Comment.new
 
     respond_to do |format|
       format.html # show.html.erb
@@ -33,7 +35,7 @@ class LinksController < ApplicationController
         format.json { render json: @link }
       end
     else
-      flash.now[:error] = 'You have to be logged in to submit'
+      flash[:error] = 'You have to be logged in to submit a comment'
       redirect_to signin_path
     end
   end

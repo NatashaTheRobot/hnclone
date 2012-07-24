@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   
   has_many :links
+  has_many :comments
   
   private
 

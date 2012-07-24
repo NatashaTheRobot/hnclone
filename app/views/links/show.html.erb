@@ -7,7 +7,6 @@
 
 <%= form_for([@link, @link.comments.build]) do |f| %>
   <div class="field">
-    <%= f.label :text %><br />
     <%= f.text_field :text %>
   </div>
   <div class="actions">

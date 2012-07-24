@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p><%= link_to @link.title, @link.url, :target => "_blank"%></p>
+<p>
+<%= link_to "upvote", link_votes_path(@link, :value => 'up'), :method => :post %>	
+<%= link_to @link.title, @link.url, :target => "_blank"%>
+</p>
 
 <%= form_for([@link, @link.comments.build]) do |f| %>
   <div class="field">

@@ -7,10 +7,10 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:success] = "Comment saved!"
-      redirect_to "/links/#{params[:link_id]}"
+      redirect_to link_path(@link)
     else
       flash[:error] = "Your comment was not saved"
-      redirect_to "/links/#{params[:link_id]}"
+      redirect_to link_path(@link)
     end
   end
   

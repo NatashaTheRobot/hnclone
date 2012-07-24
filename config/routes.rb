@@ -4,6 +4,7 @@ Hnclone::Application.routes.draw do
   
   resources :links do 
     resources :comments
+    resources :votes
   end
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

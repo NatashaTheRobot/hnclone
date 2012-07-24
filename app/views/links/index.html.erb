@@ -4,8 +4,9 @@
 
 <% @links.each do |link| %>
   <ol>
-    <li><%= link_to link.title, link.url, :target => "_blank" %>
-		<%= link_to "Comments", "/links/#{link.id}"%></li>
+    <li><%= link_to "upvote", link_votes_path(link, :value => 'up'), :method => :post %>
+		<%= link_to link.title, link.url, :target => "_blank" %>
+		<%= link_to "Comments", link_path(link) %></li>
   </ol>
 <% end %>
 

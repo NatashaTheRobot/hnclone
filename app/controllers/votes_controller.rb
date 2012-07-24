@@ -13,7 +13,7 @@ class VotesController < ApplicationController
       if @vote.save
         flash[:success] = "Thanks for the vote!"
       else
-        flash[:error] = "Sorry, your vote did not count"
+        flash[:error] = "Sorry, you cannot vote on the same link twice!"
       end
     else
       flash[:error] = "You cannot upvote your own link!"

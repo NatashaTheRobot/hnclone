@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_filter :find_resource, :only => [:show, :edit, :update, :destroy]
+  
   # GET /links
   # GET /links.json
   def index
@@ -13,7 +15,6 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    @link = Link.find(params[:id])
     @comments = @link.comments
     @comment = Comment.new
 
@@ -42,7 +43,6 @@ class LinksController < ApplicationController
 
   # GET /links/1/edit
   def edit
-    @link = Link.find(params[:id])
     if @link.user.id != current_user.id
       redirect_to link_path(@link)
       flash[:error] = "Only the author can edit this link"
@@ -69,7 +69,6 @@ class LinksController < ApplicationController
   # PUT /links/1
   # PUT /links/1.json
   def update
-    @link = Link.find(params[:id])
 
     respond_to do |format|
       if @link.update_attributes(params[:link])
@@ -85,7 +84,6 @@ class LinksController < ApplicationController
   # DELETE /links/1
   # DELETE /links/1.json
   def destroy
-    @link = Link.find(params[:id])
     @link.destroy
 
     respond_to do |format|

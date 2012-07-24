@@ -1,0 +1,4 @@
+<h1>Add Comment</h1>
+
+<p><%= @comment.text %></p>
+<p>posted by: <%= link_to @comment.user.name, user_path(@comment.user) %></p>

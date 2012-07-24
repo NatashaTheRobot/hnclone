@@ -9,9 +9,12 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment saved!"
       redirect_to "/links/#{params[:link_id]}"
     else
-      #do something else
       flash[:error] = "Your comment was not saved"
       redirect_to "/links/#{params[:link_id]}"
     end
+  end
+  
+  def show
+    @comment = Comment.find(params[:id])
   end
 end

@@ -14,7 +14,9 @@
 
 <ul>
 	<% @comments.each do |comment| %>
-		<li><%= comment.text %></li>
+		<li><%= comment.text %>
+			<%= link_to "reply", link_comment_path(@link)%>
+		</li>
 	<% end %>	
 </ul>	
 

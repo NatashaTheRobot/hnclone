@@ -5,7 +5,6 @@ class LinksController < ApplicationController
   # GET /links.json
   def index
     @links = Link.scoped.page(params[:page]).per(30)
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @links }

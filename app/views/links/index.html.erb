@@ -7,7 +7,7 @@
     <li><%= link_to "upvote", link_votes_path(link, :value => 'up'), :method => :post %>
 		<%= link_to link.title, link.url, :target => "_blank" %>
 		<%= link_to "comments", link_path(link) %>
-		<%= link_to "edit", edit_link_path(link) if link.user.id == current_user.id %>
+		<%= link_to "edit", edit_link_path(link) if link.user == current_user %>
 	</li>	
   </ol>
 <% end %>
